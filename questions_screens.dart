@@ -4,7 +4,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:adv_basics/data/questions.dart';
 class QuestionsScreen extends StatefulWidget {
   const QuestionsScreen({super.key, required this.onselectedAnswer,});
-
   final void Function (String answer) onselectedAnswer;
 
   @override
@@ -24,8 +23,6 @@ setState(() {
 });
 
  }
-
-
   @override
   Widget build(context) {
    final currentQuestion = questions[currentquestionIndex];
@@ -53,24 +50,14 @@ setState(() {
             ),
             
           const SizedBox(height: 30),
-          
-             
-          // hardcoded buttons convert to dynamic buttons
-          // currentquestion.answer is a list of strings 
-          // we can use map to convert each string to a button widget yaparak uygulanmalı// iterable kullanılır
-          // mapin kullanım alanları : listeyi bir forma dönüştürmek için kullanılır 
-          //sayı listesini 2 katına çıkarmak veya bir veri listesini widget listesine dönüştürmek için kullanılır bu sayede arayüzde kullanılmış olur.
            
           ...currentQuestion.getShuffledAnswers().map((answer){
-             // item olarak aldığında return ne dönecek
-             // 3 nokta iterable içindeki elemanları başka bir koleksiyon içine yaymak için kullanılır
             return AnswerButton(
               answerText: answer,
               onTap: () {
                 answerQuestion(answer);
               }
               
-              //list of widgetsa sahip olduk
             );
           })
            
