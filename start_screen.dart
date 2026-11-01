@@ -5,15 +5,10 @@ import 'package:google_fonts/google_fonts.dart';
 
 
 class StartScreen extends StatelessWidget {
-  //constructor tanımlamamız gerekn durumlar 
-// sınıfın değişkenlerini başlatmak
   const StartScreen(this.startQuiz,{super.key});
   @override
-  // build methodu zaten stateless widgetlarda kullanılır
-  //startscreen sınıfında kendi ihtiyaçlarımız için kullanıcaz 
 final void Function() startQuiz;
 Widget build(BuildContext context){
-// build methodu return döndürmek zorundadır 
   return  Center (
     child : Column(
       mainAxisSize: MainAxisSize.min,
@@ -56,10 +51,7 @@ Widget build(BuildContext context){
             ),
 
           ],
-      
-      
     )
-    
     
      );
 }
