@@ -8,21 +8,13 @@ class Quiz extends StatefulWidget {
   const Quiz({super.key});
   @override
   State<Quiz > createState(){
-    //stateful widgte lendi başına durum yönetemez 
-    //bu yüzden state nesnesine ihytiyaç duayar bu metot hangi state sınıfının kullanılcağını söyler.
-
     return _QuizState();
   }
 }
 
 class _QuizState extends State<Quiz> {
    List <String> selectedAnswers= [];
-  //underscore private class olmasını sağlar
-  // quiz widget class ile bağlantılı 
-
   var activeScreen = "Start Screen";
-  //initially dont have the value because execute initstate first ;
-  
  void switchScreen() {
    setState(() {
      activeScreen ="questions-screen";
@@ -31,8 +23,6 @@ class _QuizState extends State<Quiz> {
 
  void chooseAnswer(String answer){
    selectedAnswers.add(answer);
-
-
    if(selectedAnswers.length == questions.length ){
     setState(() {
       
@@ -41,8 +31,6 @@ class _QuizState extends State<Quiz> {
     });
      
    }
-
-   
  }
 
  void restartQuiz() {
@@ -52,8 +40,6 @@ class _QuizState extends State<Quiz> {
   });
 }
 
-// set state çalıştığında build methodu reeexcute olur.
-//UI update edilir.
   @override
   Widget build(BuildContext context) {
     Widget screenWidget = StartScreen(switchScreen);
@@ -85,11 +71,6 @@ class _QuizState extends State<Quiz> {
           ),
         ),
         child: screenWidget,
-
-
-        /*activeScreen == 'Start Screen'// conditon yields true or false 
-        ? StartScreen(switchScreen) // value used if conditon is met 
-        : const QuestionsScreen()*/// value condition is not met
         
        ),
      ),
