@@ -4,11 +4,9 @@ import 'package:adv_basics/data/questions.dart';
 import 'package:adv_basics/questions_summary.dart';
 
 class ResultScreen extends StatelessWidget {
-const ResultScreen({super.key, required this.chooseAnswer, required this.onRestart
-});
+const ResultScreen({super.key, required this.chooseAnswer, required this.onRestart});
 final void Function() onRestart;
 final List<String>chooseAnswer;
-// map generic type oluşturur
 List <Map<String,Object >> getSummaryData(){
 final List<Map<String,Object>> summaryData = [];
 
@@ -24,8 +22,6 @@ for(var i = 0; i < chooseAnswer.length; i++){
 
 return summaryData;
 }
-
-
   @override
   Widget build(BuildContext context) {
     final summaryData = getSummaryData();
@@ -34,8 +30,6 @@ return summaryData;
     final numCorrectQuestions = summaryData.where((data) {
   return data['user_answer'] == data['correct_answer']; // Ensure proper comparison
 }).length;
-
-
     return SizedBox(
       width :double.infinity,
       child: Container(
@@ -57,8 +51,6 @@ return summaryData;
               label: const Text('Restart Quiz'),
             )
           ],
-          
-          
           
           ),
       ),
